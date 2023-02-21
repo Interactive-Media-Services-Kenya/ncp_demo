@@ -29,7 +29,6 @@ class GenerateDemoController extends Controller
             return back()->with('message', 'Data Generated Successfully');
         } catch (\Throwable $th) {
             return back()->with('error', 'Operation Failed: => ' . $th->getMessage());
-
         }
     }
 
@@ -39,16 +38,18 @@ class GenerateDemoController extends Controller
 
         foreach ($data as $value) {
             $date = $this->randomDate($startdate, $enddate);
-            DB::table('messages_incoming')->update([
-                'timereceived' => $date
-            ])->where('id', $value->id);
+            DB::table('messages_incoming')->where('id', $value->id)
+                ->update([
+                    'timereceived' => $date
+                ]);
         }
         $dataValidPool = DB::table('validpool')->select('id', 'date_created')->cursor();
         foreach ($dataValidPool as $value) {
             $date = $this->randomDate($startdate, $enddate);
-            DB::table('validpool')->update([
-                'date_created' => $date
-            ])->where('id', $value->id);
+            DB::table('validpool')->where('id', $value->id)
+                ->update([
+                    'date_created' => $date
+                ]);
         }
     }
 
