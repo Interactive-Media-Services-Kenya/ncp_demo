@@ -26,7 +26,7 @@ class GenerateDemoController extends Controller
 
             $this->generateDemoData($startdate, $enddate);
 
-            return back()->with('success', 'DataGenerated Successfully');
+            return back()->with('message', 'Data Generated Successfully');
         } catch (\Throwable $th) {
             return back()->with('error', 'Operation Failed: => ' . $th->getMessage());
 
