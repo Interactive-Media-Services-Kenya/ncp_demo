@@ -78,7 +78,7 @@
                                             {{ $draw_winner->id ?? '' }}
                                         </td> --}}
                                         <td>
-                                            {{ $draw_winner->phone ?? '' }}
+                                            {{ substr($draw_winner->phone, 0, 5) . '*****' . substr($draw_winner->phone, -2) ?? '' }}
                                         </td>
                                         <td>
                                             {{ $draw_winner->code ?? '' }}

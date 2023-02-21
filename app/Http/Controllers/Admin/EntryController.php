@@ -40,7 +40,7 @@ class EntryController extends Controller
                                     : '')))));
             });
             $table->editColumn('originator', function ($row) {
-                return $row->originator ? $row->originator : '';
+                return $row->originator ? substr($row->originator, 0, 5) . '*****' . substr($row->originator, -2) : '';
             });
             $table->editColumn('timereceived', function ($row) {
                 return $row->timereceived ? $row->timereceived : '';
@@ -87,7 +87,7 @@ class EntryController extends Controller
                                     : '')))));
             });
             $table->editColumn('originator', function ($row) {
-                return $row->originator ? $row->originator : '';
+                return $row->originator ? substr($row->originator, 0, 5) . '*****' . substr($row->originator, -2) : '';
             });
             $table->editColumn('timereceived', function ($row) {
                 return $row->timereceived ? $row->timereceived : '';
@@ -139,7 +139,7 @@ class EntryController extends Controller
                                     : '')))));
             });
             $table->editColumn('originator', function ($row) {
-                return $row->originator ? $row->originator : '';
+                return $row->originator ? substr($row->originator, 0, 5) . '*****' . substr($row->originator, -2) : '';
             });
             $table->editColumn('timereceived', function ($row) {
                 return $row->timereceived ? $row->timereceived : '';
@@ -210,7 +210,7 @@ class EntryController extends Controller
                 return $row->id ? $row->id : '';
             });
             $table->editColumn('phone_number', function ($row) {
-                return $row->phone_number ? $row->phone_number : '';
+                return $row->phone_number ? substr($row->phone_number, 0, 5) . '*****' . substr($row->phone_number, -2) : '';
             });
             $table->editColumn('active', function ($row) {
                return $row->active == 1 ? 'ACTIVE' : 'INACTIVE';

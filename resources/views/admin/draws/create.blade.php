@@ -150,7 +150,7 @@
                                                                 {{ $draw_winner->id ?? '' }}
                                                             </td>
                                                             <td>
-                                                                {{ $draw_winner->phone ?? '' }}
+                                                                {{ substr($draw_winner->phone, 0, 5) . '*****' . substr($draw_winner->phone, -2) ?? '' }}
                                                             </td>
                                                             {{-- <td>{{ \DB::table('regions')->where('id',\DB::table('messages_incoming')->where('message',$draw_winner->code)->value('region'))->value('title') ?? 'No Region'}}</td> --}}
                                                             <td>
