@@ -51,6 +51,15 @@ class GenerateDemoController extends Controller
                     'date_created' => $date
                 ]);
         }
+
+        $dataDailyWinners = DB::table('daily_winners')->select('id')->take(3000)->cursor();
+        foreach ($dataDailyWinners as $value) {
+            $date = $this->randomDate($startdate, $enddate);
+            DB::table('daily_winners')->where('id', $value->id)
+                ->update([
+                    'date' => $date
+                ]);
+        }
     }
 
     public function randomDate($startdate, $enddate)
