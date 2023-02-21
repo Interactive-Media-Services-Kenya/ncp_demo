@@ -34,7 +34,7 @@ class GenerateDemoController extends Controller
 
     public function generateDemoData($startdate, $enddate)
     {
-        $data = DB::table('messages_incoming')->select('id', 'timereceived')->cursor();
+        $data = DB::table('messages_incoming')->select('id', 'timereceived')->take(30000)->cursor();
 
         foreach ($data as $value) {
             $date = $this->randomDate($startdate, $enddate);
@@ -43,7 +43,7 @@ class GenerateDemoController extends Controller
                     'timereceived' => $date
                 ]);
         }
-        $dataValidPool = DB::table('validpool')->select('id', 'date_created')->cursor();
+        $dataValidPool = DB::table('validpool')->select('id', 'date_created')->take(5000)->cursor();
         foreach ($dataValidPool as $value) {
             $date = $this->randomDate($startdate, $enddate);
             DB::table('validpool')->where('id', $value->id)
