@@ -1,5 +1,12 @@
 @extends('layouts.backend')
-
+{{-- @section('css')
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(window).on('load', function() {
+            $('#modalGenerateDemoData').modal('show');
+        });
+    </script>
+@endsection --}}
 @section('content')
     <div class="app-page-title">
         <div class="page-title-wrapper">
@@ -11,10 +18,32 @@
                 <div>{{ env('APP_NAME') }} Dashboard
                     <div class="page-title-subheading"> {{ Auth::user()->last_name }}
                     </div>
+                    <a class="btn btn-primary">Generate Demo Data</a>
                 </div>
             </div>
         </div>
     </div>
+    <!-- Modal -->
+    {{-- <div class="modal fade" id="modalGenerateDemoData" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div> --}}
     @can('user_management_access')
         <div class="row">
             <div class="col-md-6 col-xl-4">
@@ -223,7 +252,8 @@
             <div class="main-card mb-3 mt-3 card">
                 <div class="form-group col-md-4 mt-2 align-content-right">
                     <label for="search">Search Participant Phone Number</label>
-                    <input type="text" class="form-control" id="search" name="search" placeholder="Search ...2547XXXXXXXXX">
+                    <input type="text" class="form-control" id="search" name="search"
+                        placeholder="Search ...2547XXXXXXXXX">
                 </div>
             </div>
             <div class="main-card mb-3 card">
@@ -392,16 +422,13 @@
             });
             chart.update();
         }
-
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script type="text/javascript">
-
         $('#search').on('keyup', function() {
             $value = $(this).val();
             $.ajax({
                 type: 'get',
-                url: `{{ route('admin.search')}}`,
+                url: `{{ route('admin.search') }}`,
                 data: {
                     'search': $value
                 },

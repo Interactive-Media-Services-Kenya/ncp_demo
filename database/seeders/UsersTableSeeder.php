@@ -13,7 +13,7 @@ class UsersTableSeeder extends Seeder
             [
                 'id'                 => 1,
                 'first_name'         => 'Stephen',
-                'email'              => 'steveowago@gmail.com',
+                'email'              => 'stephen@ims.co.ke',
                 'password'           => bcrypt('Owagostv@123'),
                 'remember_token'     => null,
                 'verified'           => 1,

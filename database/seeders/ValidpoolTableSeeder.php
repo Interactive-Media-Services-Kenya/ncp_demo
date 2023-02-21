@@ -15,8 +15,8 @@ class ValidpoolTableSeeder extends Seeder
     public function run()
     {
         //Creating Fake Seed Data for April 1000 records per day
-        $startDate = '2022-06-01';
-        $endDate = '2022-06-30';
+        $startDate = '2023-02-01';
+        $endDate = '2023-02-28';
 
         $period =\Carbon\CarbonPeriod::create($startDate, $endDate)->toArray();
 
@@ -27,7 +27,7 @@ class ValidpoolTableSeeder extends Seeder
         }
 
         foreach ($dates as $validPoolDate) {
-            $count = 1000;
+            $count = mt_rand(500,1000);
             for ($i=0; $i < $count; $i++) {
                 $code = $this->generateCode();
                 DB::table('validpool')->insert([
