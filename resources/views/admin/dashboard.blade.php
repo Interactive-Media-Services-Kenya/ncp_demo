@@ -18,7 +18,7 @@
                 <div>{{ env('APP_NAME') }} Dashboard
                     <div class="page-title-subheading"> {{ Auth::user()->last_name }}
                     </div>
-                    <a class="btn btn-primary">Generate Demo Data</a>
+                    <a class="btn btn-primary" href="{{route('admin.generate.createdemo')}}">Generate Demo Data</a>
                 </div>
             </div>
         </div>
