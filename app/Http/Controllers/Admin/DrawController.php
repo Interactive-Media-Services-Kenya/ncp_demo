@@ -479,7 +479,7 @@ class DrawController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('action', 'action');
             $table->editColumn('phone_number', function ($row) {
-                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.$row->phone_number.'</a>': '';
+                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.substr($row->phone_number, 0, 5) . '*****' . substr($row->phone_number, -2).'</a>': '';
             });
             $table->editColumn('prize_type', function ($row) {
                 return $row->prize_type ?? '';
@@ -517,7 +517,7 @@ class DrawController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('action', 'action');
             $table->editColumn('phone_number', function ($row) {
-                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.$row->phone_number.'</a>': '';
+                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.substr($row->phone_number, 0, 5) . '*****' . substr($row->phone_number, -2).'</a>': '';
             });
             $table->editColumn('prize_type', function ($row) {
                 return $row->prize_type ?? '';
@@ -554,7 +554,7 @@ class DrawController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('action', 'action');
             $table->editColumn('phone_number', function ($row) {
-                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.$row->phone_number.'</a>': '';
+                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.substr($row->phone_number, 0, 5) . '*****' . substr($row->phone_number, -2).'</a>': '';
             });
             $table->editColumn('prize_type', function ($row) {
                 return $row->prize_type ?? '';
@@ -590,7 +590,7 @@ class DrawController extends Controller
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('action', 'action');
             $table->editColumn('phone_number', function ($row) {
-                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.$row->phone_number.'</a>': '';
+                return $row->phone_number ?'<a href="/admin/validpool/show/'.$row->phone_number.'" class="text-primary">'.substr($row->phone_number, 0, 5) . '*****' . substr($row->phone_number, -2).'</a>': '';
             });
             $table->editColumn('prize_type', function ($row) {
                 return $row->prize_type ?? '';
